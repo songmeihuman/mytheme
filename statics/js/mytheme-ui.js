@@ -312,18 +312,21 @@ var MyTheme = {
 			});
 		},
 		'Skin': function() {
-			var skinnum = 0,act;
+			var skinnum = 0;
 		    var lengths = $("link[name='skin']").length;
 		    $('.btnskin').click(function() {
 		        skinnum+=1;
 		        if(skinnum==lengths){skinnum=0;}
-		        var skin = $("link[name='skin']").eq(skinnum).attr("href");
-		        layer.msg("正在切换皮肤，请稍后...",{anim:5,time: 2000},function(){
-		        	$("link[name='default']").attr({href:skin});
-		        });
-		        MyTheme.Cookie.Set('skinColor',skin,365);
+		        var skin = $("link[name='skin']").eq(skinnum).attr("data-href");
+		        //layer.msg("正在切换皮肤，请稍后...",{anim:5,time: 2000},function(){
+		        //	$("link[name='default']").attr({href:skin});
+		        //});
+		        $("link[name='default']").attr({href:skin});
+		        // MyTheme.Cookie.Set('skinColor',skin,365);
+            localStorage.setItem('skinColor', skin);
 		    });
-		    var color = MyTheme.Cookie.Get('skinColor');
+		    //var color = MyTheme.Cookie.Get('skinColor');
+		    var color = localStorage.getItem("skinColor");
 		    if(color){
 		        $("link[name='default']").attr({href:color});
 		    }  
