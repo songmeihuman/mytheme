@@ -119,12 +119,19 @@ var MyTheme = {
 	},
 	'Images': {
 		'Lazyload': function() {
-			$(".lazyload").lazyload({
-				effect: "fadeIn",
-				threshold: 200,
-				failure_limit : 1,
-				skip_invisible : false,
-			});
+      if (window.LazyLoad) {
+        var lazyLoadInstance = new LazyLoad({
+          elements_selector: '.lazyload',
+          data_bg: 'original',
+        });
+      }else{
+        $(".lazyload").lazyload({
+          effect: "fadeIn",
+          threshold: 200,
+          failure_limit : 1,
+          skip_invisible : false,
+        });
+      }
 		},
 		'Qrcode': {
 			'Init': function() {
@@ -275,9 +282,9 @@ var MyTheme = {
 	},
 	'Other': {
 		'Headroom': function() {
-			if($("#header-top").length){
+			if($("#header-top").length && window.Headroom){
 				var header = document.querySelector("#header-top");
-	            var headroom = new Headroom(header, {
+        var headroom = new Headroom(header, {
 					tolerance: 5,
 					offset: 205,
 					classes: {
