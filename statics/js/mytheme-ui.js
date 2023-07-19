@@ -137,8 +137,8 @@ var MyTheme = {
 			'Init': function() {
 				if($("#qrcode").length){
 					var $that = $("#qrcode");
-	                MyTheme.Images.Qrcode.Set($that.attr('data-link'),$that.attr('data-dark'),$that.attr('data-light'));
-	                $that.attr("class","img-responsive");
+          MyTheme.Images.Qrcode.Set($that.attr('data-link'),$that.attr('data-dark'),$that.attr('data-light'));
+          $that.attr("class","img-responsive");
 				}
 			},
 			'Set':  function(url,dark,light) {
@@ -438,34 +438,35 @@ var MyTheme = {
       },
 			'Set':function(name,link,pic,part,limit){
         pic = "";
-				if(!link){ link = document.URL;}
-				var history = MyTheme.Cookie.Get("history");
-			    var len=0;
-			    var canadd=true;
-			    if(history){
-			        history = eval("("+history+")"); 
-			        len=history.length;
-			        $(history).each(function(){
-			            if(name==this.name){
-			                canadd=false;
-			                var json="[";
-			                $(history).each(function(i){
-			                    var temp_name,temp_img,temp_url,temp_part;
-			                    if(this.name==name){
-			                        temp_name=name;temp_img=pic;temp_url=link;temp_part=part;
-			                    }else{
-			                        temp_name=this.name;temp_img=this.pic;temp_url=this.link;temp_part=this.part;
-			                    }
-			                    json+="{\"name\":\""+temp_name+"\",\"pic\":\""+temp_img+"\",\"link\":\""+temp_url+"\",\"part\":\""+temp_part+"\"}";
-			                    if(i!=len-1)
-			                    json+=",";
-			                })
-			                json+="]";
-			                //MyTheme.Cookie.Set('history',json,365);
-                      localStorage.setItem("history", json);
-			                return false;
-			            }
-			        });
+        if(!link){ link = document.URL;}
+        //var history = MyTheme.Cookie.Get("history");
+        var history = MyTheme.Other.history.Get()
+        var len=0;
+        var canadd=true;
+        if(history){
+          //history = eval("("+history+")"); 
+          len=history.length;
+          $(history).each(function(){
+            if(name==this.name){
+              canadd=false;
+              var json="[";
+              $(history).each(function(i){
+                var temp_name,temp_img,temp_url,temp_part;
+                if(this.name==name){
+                  temp_name=name;temp_img=pic;temp_url=link;temp_part=part;
+                }else{
+                  temp_name=this.name;temp_img=this.pic;temp_url=this.link;temp_part=this.part;
+                }
+                json+="{\"name\":\""+temp_name+"\",\"pic\":\""+temp_img+"\",\"link\":\""+temp_url+"\",\"part\":\""+temp_part+"\"}";
+                if(i!=len-1)
+                  json+=",";
+              })
+              json+="]";
+              //MyTheme.Cookie.Set('history',json,365);
+              localStorage.setItem("history", json);
+              return false;
+            }
+          });
 			    }
 			    if(canadd){
 			        var json="[";
