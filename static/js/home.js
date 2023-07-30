@@ -328,52 +328,6 @@ var MAC={
             });
         }
     },
-    'Gbook':{
-        'Login':0,
-        'Verify':0,
-        'Init':function(){
-            $('body').on('keyup', '.gbook_content', function(e){
-                MAC.Remaining($(this),200,'.gbook_remaining')
-            });
-            $('body').on('focus', '.gbook_content', function(e){
-                if(MAC.Gbook.Login==1 && MAC.User.IsLogin!=1){
-                    MAC.User.Login();
-                }
-            });
-            $('body').on('click', '.gbook_submit', function(e){
-                MAC.Gbook.Submit();
-            });
-        },
-        'Show':function($page){
-            MAC.Ajax(maccms.path+'/index.php/gbook/index?page='+$page,'post','json','',function(r){
-                $(".mac_gbook_box").html(r);
-            },function(){
-                $(".mac_gbook_box").html('留言加载失败，请刷新...');
-            });
-        },
-        'Submit':function(){
-            if($(".gbook_content").val() == ''){
-                MAC.Pop.Msg(100,20,'请输入您的留言!',1000);
-                return false;
-            }
-            MAC.Ajax(maccms.path + '/index.php/gbook/saveData','post','json',$('.gbook_form').serialize(),function(r){
-                MAC.Pop.Msg(100,20,r.msg,1000);
-                if(r.code == 1){
-                    location.reload();
-                }
-                else{
-                    if(MAC.Gbook.Verify==1){
-                        MAC.Verify.Refresh();
-                    }
-                }
-            });
-        },
-        'Report':function(name,id){
-            MAC.Pop.Show(400,300,'数据报错',maccms.path+'/index.php/gbook/report.html?id='+id+'&name='+ encodeURIComponent(name),function(r){
-
-            });
-        }
-    },
     'Search':{
         'Init':function(){
             $('.mac_search').click(function(){

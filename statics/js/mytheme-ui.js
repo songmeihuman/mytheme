@@ -426,11 +426,6 @@ var MyTheme = {
         }
 			},
       'Get': function() {
-        //var history_get = MyTheme.Cookie.Get("history");
-        //if(history_get){
-        //  var json=eval("("+history_get+")");
-        //  return json
-        //}
         var value = localStorage.getItem("history")
         if (value) {
           return JSON.parse(value)
@@ -439,12 +434,10 @@ var MyTheme = {
 			'Set':function(name,link,pic,part,limit){
         pic = "";
         if(!link){ link = document.URL;}
-        //var history = MyTheme.Cookie.Get("history");
         var history = MyTheme.Other.history.Get()
         var len=0;
         var canadd=true;
         if(history){
-          //history = eval("("+history+")"); 
           len=history.length;
           $(history).each(function(){
             if(name==this.name){
@@ -462,7 +455,6 @@ var MyTheme = {
                   json+=",";
               })
               json+="]";
-              //MyTheme.Cookie.Set('history',json,365);
               localStorage.setItem("history", json);
               return false;
             }
@@ -482,7 +474,6 @@ var MyTheme = {
 		        	if(len>0){
 		            	json+="{\"name\":\""+history[len-1].name+"\",\"pic\":\""+history[len-1].pic+"\",\"link\":\""+history[len-1].link+"\",\"part\":\""+history[len-1].part+"\"}]";
 		        	}
-			        //MyTheme.Cookie.Set('history',json,365);
               localStorage.setItem("history", json);
 			    }  
 			}

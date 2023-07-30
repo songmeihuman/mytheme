@@ -86,7 +86,6 @@ var Myui = {
 			MyTheme.Ajax(maccms.path + '/index.php/gbook/saveData','post','json',$("#myform").serialize(),function(r){
 	            if(r.code==1){ 
 	            	layer.msg(r.msg,{anim:5},function(){
-					    location.reload();
 					});	            
 		        } else {
 		        	if(MAC.Gbook.Verify==1){
