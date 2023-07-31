@@ -16,3 +16,7 @@
 * 港剧：https://ddd.dianying100.xyz/index.php/vod/type/id/23.html
 * 日漫: https://ddd.dianying100.xyz/index.php/vod/type/id/26.html
 * 其他: https://ddd.dianying100.xyz/index.php/vod/type/id/27.html
+
+# 最近更新
+
+* [2023-07-30](daily_update/2023-07-30.md)
