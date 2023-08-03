@@ -434,7 +434,7 @@ var MyTheme = {
 			'Set':function(name,link,pic,part,limit){
         pic = "";
         if(!link){ link = document.URL;}
-        var history = MyTheme.Other.history.Get()
+        var history = MyTheme.Other.History.Get()
         var len=0;
         var canadd=true;
         if(history){
