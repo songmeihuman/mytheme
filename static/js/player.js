@@ -30,7 +30,7 @@ var MacPlayer = {
             MacPlayer.AdsEnd()
         }, this.Second * 1000);
         //$("#playleft").get(0).innerHTML = this.Html + '';
-        $("#playleft iframe").attr("src", "/static/player/dplayer.html");
+        //$("#playleft iframe").attr("src", "/static/player/dplayer.html");
     }, 'AdsStart': function () {
         if ($("#buffer").attr('src') != this.Buffer) {
             $("#buffer").attr('src', this.Buffer)
