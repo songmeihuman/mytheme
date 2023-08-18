@@ -34,6 +34,10 @@
 在线地址: [https://dianying100.xyz/index.php/vod/detail/id/58569.html](https://dianying100.xyz/index.php/vod/detail/id/58569.html)  
 >一名墨西哥少年发现了一只外星甲虫，这只甲虫给了他超能力的盔甲。  
 
+## 蜘蛛侠：逝去之莲  
+在线地址: [https://dianying100.xyz/index.php/vod/detail/id/57969.html](https://dianying100.xyz/index.php/vod/detail/id/57969.html)  
+>这是一部非营利性的长篇电影，与漫威、索尼或迪士尼均无关联，由该蜘蛛侠的粉丝创作。  
+
 ## 超异能族  
 在线地址: [https://dianying100.xyz/index.php/vod/detail/id/57645.html](https://dianying100.xyz/index.php/vod/detail/id/57645.html)  
 >该剧改编自姜草的同名漫画，讲述隐藏超能力生活于现在的孩子们，与隐藏过去痛苦的秘密的父母们共同面对跨越世代的巨大危险的超能力动作英雄故事。  
@@ -62,31 +66,27 @@
 在线地址: [https://dianying100.xyz/index.php/vod/detail/id/26078.html](https://dianying100.xyz/index.php/vod/detail/id/26078.html)  
 >影片讲述了一位平民游戏少年热血逐梦，成为职业赛车手的真实励志故事。从小怀揣赛车梦想的詹恩·马登伯勒（阿奇·马德基             饰）被  赛车学院挖掘，他凭借出色的游戏经验和自身的努力一  
 
-## 蜘蛛侠：逝去之莲  
-在线地址: [https://dianying100.xyz/index.php/vod/detail/id/57969.html](https://dianying100.xyz/index.php/vod/detail/id/57969.html)  
->蜘蛛侠：逝去之莲  
-
 ## 美猴王  
 在线地址: [https://dianying100.xyz/index.php/vod/detail/id/58567.html](https://dianying100.xyz/index.php/vod/detail/id/58567.html)  
 >《美猴王》是一部充满打斗场面的家庭喜剧，讲述了一只魅力十足的猴子手持金箍棒过五关斩六将，与上百个妖魔鬼怪以及龙王正面交锋，并直面最大的敌人—他自己！在此期间，一位年轻的乡村女孩逐渐瓦解了他以自我为  
-
-## 谍之心 Heart of Stone  
-在线地址: [https://dianying100.xyz/index.php/vod/detail/id/57779.html](https://dianying100.xyz/index.php/vod/detail/id/57779.html)  
->瑞秋·斯通（盖尔·加朵饰）是一名情报特工，替强大的全球维安组织工作。眼见组织即将失去最珍贵但也最危险的资产“谍心”，一切只能靠她力挽狂澜。  
 
 ## 雾山五行之犀川幻紫林篇  
 在线地址: [https://dianying100.xyz/index.php/vod/detail/id/24952.html](https://dianying100.xyz/index.php/vod/detail/id/24952.html)  
 >上古时期妖兽纵横，一位神秘道人分别授予了阴阳五行的特殊能力给金木水火土五个家族来抵抗妖兽。他们将妖兽驱赶到神隐雾山之中，设立结界。雾山之中另有强大灵力的麒麟兽常常吸引来那些想要提升妖力突破结界的妖兽们  
 
-## 巨齿鲨2：深渊  
-在线地址: [https://dianying100.xyz/index.php/vod/detail/id/25187.html](https://dianying100.xyz/index.php/vod/detail/id/25187.html)  
->海洋霸主巨齿鲨，今夏再掀狂澜！乔纳斯·泰勒（杰森·斯坦森饰）与科学家张九溟（吴京饰）双雄联手，进入海底7000米深渊执行探索任务。他们意外遭遇史前巨兽海洋霸主巨齿鲨群的攻击，还将对战凶猛危险的远古  
+## 金牌保镖  
+在线地址: [https://dianying100.xyz/index.php/vod/detail/id/57778.html](https://dianying100.xyz/index.php/vod/detail/id/57778.html)  
+>双腿残疾的童松是矛盾安保公司的创始人，团队中还有两人，分别是擅长机械的安宁和心思单纯、身手了得的大牛。公司主要的业务是保护客户的人身和财产安全，俗称“保镖”。这天，他们接到一个为期三天的匿名委  
+
+## 谍之心 Heart of Stone  
+在线地址: [https://dianying100.xyz/index.php/vod/detail/id/57779.html](https://dianying100.xyz/index.php/vod/detail/id/57779.html)  
+>瑞秋·斯通（盖尔·加朵饰）是一名情报特工，替强大的全球维安组织工作。眼见组织即将失去最珍贵但也最危险的资产“谍心”，一切只能靠她力挽狂澜。  
 
 ## 扫毒3：人在天涯  
 在线地址: [https://dianying100.xyz/index.php/vod/detail/id/57647.html](https://dianying100.xyz/index.php/vod/detail/id/57647.html)  
 >毒枭康素差（刘青云饰）一直带着手下张建行（郭富城饰）从事毒品交易，新加入的成员欧志远（古天乐饰）也因一次意外与两人有了过命交情，三人情同手足。康素差在香港的贩毒生意被警方查处后带团队逃到金三角发展  
 
-## 金牌保镖  
-在线地址: [https://dianying100.xyz/index.php/vod/detail/id/57778.html](https://dianying100.xyz/index.php/vod/detail/id/57778.html)  
->双腿残疾的童松是矛盾安保公司的创始人，团队中还有两人，分别是擅长机械的安宁和心思单纯、身手了得的大牛。公司主要的业务是保护客户的人身和财产安全，俗称“保镖”。这天，他们接到一个为期三天的匿名委  
+## 巨齿鲨2：深渊  
+在线地址: [https://dianying100.xyz/index.php/vod/detail/id/25187.html](https://dianying100.xyz/index.php/vod/detail/id/25187.html)  
+>海洋霸主巨齿鲨，今夏再掀狂澜！乔纳斯·泰勒（杰森·斯坦森饰）与科学家张九溟（吴京饰）双雄联手，进入海底7000米深渊执行探索任务。他们意外遭遇史前巨兽海洋霸主巨齿鲨群的攻击，还将对战凶猛危险的远古  
 
