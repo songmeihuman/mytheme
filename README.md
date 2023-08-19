@@ -46,10 +46,6 @@
 在线地址: [https://dianying100.xyz/index.php/vod/detail/id/57695.html](https://dianying100.xyz/index.php/vod/detail/id/57695.html)  
 >直男警察吴明翰（许光汉饰）误捡地上红包，没想到红包里的对象是个男的（林柏宏饰）！被迫男男冥婚的明翰，一路衰到底，不但甩不掉冥婚对象，就连警花林子晴（王净饰）埋线已久的缉毒案，都被他搞砸。为了挽救危  
 
-## 莲花楼  
-在线地址: [https://dianying100.xyz/index.php/vod/detail/id/20581.html](https://dianying100.xyz/index.php/vod/detail/id/20581.html)  
->该剧改编自藤萍的小说《吉祥纹莲花楼》。十年前四顾门门主李相夷以相夷太剑冠绝天下，为正道武林之光，却因与金鸳盟盟主笛飞声约战东海，两大高手就此消失在万顷碧波之上。四顾门与金鸳盟也两败俱伤渐渐消失于江  
-
 ## 长相思  
 在线地址: [https://dianying100.xyz/index.php/vod/detail/id/25001.html](https://dianying100.xyz/index.php/vod/detail/id/25001.html)  
 >上古时期，人、神、妖混居，神农、轩辕、高辛三国鼎立。流落大荒的高辛王姬玖瑶（小夭）历经百年颠沛之苦，不但失去了身份，也失去了容貌，在清水镇落脚，成为了“无处可去、无人可依、无力自保”的玟小六。他悬  
@@ -89,4 +85,8 @@
 ## 巨齿鲨2：深渊  
 在线地址: [https://dianying100.xyz/index.php/vod/detail/id/25187.html](https://dianying100.xyz/index.php/vod/detail/id/25187.html)  
 >海洋霸主巨齿鲨，今夏再掀狂澜！乔纳斯·泰勒（杰森·斯坦森饰）与科学家张九溟（吴京饰）双雄联手，进入海底7000米深渊执行探索任务。他们意外遭遇史前巨兽海洋霸主巨齿鲨群的攻击，还将对战凶猛危险的远古  
+
+## 谜案追凶1  
+在线地址: [https://dianying100.xyz/index.php/vod/detail/id/58566.html](https://dianying100.xyz/index.php/vod/detail/id/58566.html)  
+>秦勇受命调查惨绝人寰的分尸案，在梳理与刑侦的过程中真相逐渐浮出水面，而每一个犯罪...  
 
