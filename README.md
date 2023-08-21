@@ -18,13 +18,9 @@
 * 其他: https://ddd.dianying100.xyz/index.php/vod/type/id/27.html
 
 # 最近更新  
-## 奥本海默  
-在线地址: [https://dianying100.xyz/index.php/vod/detail/id/863.html](https://dianying100.xyz/index.php/vod/detail/id/863.html)  
->克里斯托弗·诺兰自编自导新片《奥本海默》，聚焦基里安·墨菲饰演的“原子弹之父”罗伯特·奥本海默。观众将看到一个谜一般的男人是如何陷入一个自相矛盾的困境：他为了拯救这个世界，必须先毁灭它。改编自  
-
-## 封神第一部：朝歌风云  
-在线地址: [https://dianying100.xyz/index.php/vod/detail/id/957.html](https://dianying100.xyz/index.php/vod/detail/id/957.html)  
->商王殷寿（费翔饰）勾结狐妖妲己（娜然饰），暴虐无道，引发天谴。昆仑仙人姜子牙（黄渤饰）携“封神榜”下山，寻找天下共主，以救苍生。西伯侯之子姬发（于适饰）逐渐发现殷寿的本来面目，反出朝歌。各方势力暗  
+## 学爸  
+在线地址: [https://dianying100.xyz/index.php/vod/detail/id/58818.html](https://dianying100.xyz/index.php/vod/detail/id/58818.html)  
+>雷大力（黄渤饰）为了让儿子雷小米（单禹豪饰）能够拥有更高的人生起点，在单亲妈妈刘真真（闫妮饰）的带领下，被迫卷入了“幼升小”的激烈角逐。又在火哥（张子贤饰）和火嫂（万茜饰）的影响下，不惜倾尽所有购  
 
 ## 孤注一掷  
 在线地址: [https://dianying100.xyz/index.php/vod/detail/id/55408.html](https://dianying100.xyz/index.php/vod/detail/id/55408.html)  
@@ -34,6 +30,10 @@
 在线地址: [https://dianying100.xyz/index.php/vod/detail/id/58569.html](https://dianying100.xyz/index.php/vod/detail/id/58569.html)  
 >一名墨西哥少年发现了一只外星甲虫，这只甲虫给了他超能力的盔甲。  
 
+## 奥本海默  
+在线地址: [https://dianying100.xyz/index.php/vod/detail/id/863.html](https://dianying100.xyz/index.php/vod/detail/id/863.html)  
+>克里斯托弗·诺兰自编自导新片《奥本海默》，聚焦基里安·墨菲饰演的“原子弹之父”罗伯特·奥本海默。观众将看到一个谜一般的男人是如何陷入一个自相矛盾的困境：他为了拯救这个世界，必须先毁灭它。改编自  
+
 ## 蜘蛛侠：逝去之莲  
 在线地址: [https://dianying100.xyz/index.php/vod/detail/id/57969.html](https://dianying100.xyz/index.php/vod/detail/id/57969.html)  
 >这是一部非营利性的长篇电影，与漫威、索尼或迪士尼均无关联，由该蜘蛛侠的粉丝创作。  
@@ -42,25 +42,17 @@
 在线地址: [https://dianying100.xyz/index.php/vod/detail/id/57645.html](https://dianying100.xyz/index.php/vod/detail/id/57645.html)  
 >该剧改编自姜草的同名漫画，讲述隐藏超能力生活于现在的孩子们，与隐藏过去痛苦的秘密的父母们共同面对跨越世代的巨大危险的超能力动作英雄故事。  
 
-## 关于我和鬼变成家人的那件事  
-在线地址: [https://dianying100.xyz/index.php/vod/detail/id/57695.html](https://dianying100.xyz/index.php/vod/detail/id/57695.html)  
->直男警察吴明翰（许光汉饰）误捡地上红包，没想到红包里的对象是个男的（林柏宏饰）！被迫男男冥婚的明翰，一路衰到底，不但甩不掉冥婚对象，就连警花林子晴（王净饰）埋线已久的缉毒案，都被他搞砸。为了挽救危  
+## 封神第一部：朝歌风云  
+在线地址: [https://dianying100.xyz/index.php/vod/detail/id/957.html](https://dianying100.xyz/index.php/vod/detail/id/957.html)  
+>商王殷寿（费翔饰）勾结狐妖妲己（娜然饰），暴虐无道，引发天谴。昆仑仙人姜子牙（黄渤饰）携“封神榜”下山，寻找天下共主，以救苍生。西伯侯之子姬发（于适饰）逐渐发现殷寿的本来面目，反出朝歌。各方势力暗  
 
 ## 长相思  
 在线地址: [https://dianying100.xyz/index.php/vod/detail/id/25001.html](https://dianying100.xyz/index.php/vod/detail/id/25001.html)  
 >上古时期，人、神、妖混居，神农、轩辕、高辛三国鼎立。流落大荒的高辛王姬玖瑶（小夭）历经百年颠沛之苦，不但失去了身份，也失去了容貌，在清水镇落脚，成为了“无处可去、无人可依、无力自保”的玟小六。他悬  
 
-## 消失的她  
-在线地址: [https://dianying100.xyz/index.php/vod/detail/id/985.html](https://dianying100.xyz/index.php/vod/detail/id/985.html)  
->何非（朱一龙饰）的妻子李木子在结婚周年旅行中离奇消失，在何非苦寻无果之时妻子（文咏珊饰）再次现身，何非却坚持眼前的陌生女人并非妻子，妻子拿出了身份证明进行自证，夫妻二人似乎都有不可告人的秘密，随着  
-
 ## 超能一家人  
 在线地址: [https://dianying100.xyz/index.php/vod/detail/id/58564.html](https://dianying100.xyz/index.php/vod/detail/id/58564.html)  
 >郑前（艾伦 饰）新开发的APP被狡猾又诚实的反派乞乞科夫（沈腾 饰）盯上了。幸好郑前一家人意外获得了超能力，姐姐会飞天，爸爸能隐身，爷爷不死术，妹妹力大无穷。郑前本指望家人们出手帮忙，一家人却常常出糗  
-
-## GT赛车：极速狂飙  
-在线地址: [https://dianying100.xyz/index.php/vod/detail/id/26078.html](https://dianying100.xyz/index.php/vod/detail/id/26078.html)  
->影片讲述了一位平民游戏少年热血逐梦，成为职业赛车手的真实励志故事。从小怀揣赛车梦想的詹恩·马登伯勒（阿奇·马德基             饰）被  赛车学院挖掘，他凭借出色的游戏经验和自身的努力一  
 
 ## 美猴王  
 在线地址: [https://dianying100.xyz/index.php/vod/detail/id/58567.html](https://dianying100.xyz/index.php/vod/detail/id/58567.html)  
@@ -69,6 +61,10 @@
 ## 雾山五行之犀川幻紫林篇  
 在线地址: [https://dianying100.xyz/index.php/vod/detail/id/24952.html](https://dianying100.xyz/index.php/vod/detail/id/24952.html)  
 >上古时期妖兽纵横，一位神秘道人分别授予了阴阳五行的特殊能力给金木水火土五个家族来抵抗妖兽。他们将妖兽驱赶到神隐雾山之中，设立结界。雾山之中另有强大灵力的麒麟兽常常吸引来那些想要提升妖力突破结界的妖兽们  
+
+## 关于我和鬼变成家人的那件事  
+在线地址: [https://dianying100.xyz/index.php/vod/detail/id/57695.html](https://dianying100.xyz/index.php/vod/detail/id/57695.html)  
+>直男警察吴明翰（许光汉饰）误捡地上红包，没想到红包里的对象是个男的（林柏宏饰）！被迫男男冥婚的明翰，一路衰到底，不但甩不掉冥婚对象，就连警花林子晴（王净饰）埋线已久的缉毒案，都被他搞砸。为了挽救危  
 
 ## 金牌保镖  
 在线地址: [https://dianying100.xyz/index.php/vod/detail/id/57778.html](https://dianying100.xyz/index.php/vod/detail/id/57778.html)  
@@ -89,4 +85,8 @@
 ## 谜案追凶1  
 在线地址: [https://dianying100.xyz/index.php/vod/detail/id/58566.html](https://dianying100.xyz/index.php/vod/detail/id/58566.html)  
 >秦勇受命调查惨绝人寰的分尸案，在梳理与刑侦的过程中真相逐渐浮出水面，而每一个犯罪...  
+
+## 阴阳先生  
+在线地址: [https://dianying100.xyz/index.php/vod/detail/id/58725.html](https://dianying100.xyz/index.php/vod/detail/id/58725.html)  
+>世间曾有一人名为阎不烦，隐于闹市帮助苦难的百姓而受爱戴。据传言，其擅天象地理之道，通驱邪捉诡之法，见常人之不能见，断事中不平事，谓之阴阳先生。阎不烦受邀来到林家宅解决难题，进门便撞见地上一排“  
 
