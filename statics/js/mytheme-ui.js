@@ -1,10 +1,3 @@
-/*!
- * 版本：MYUI Copyright © 2019
- * 作者：QQ726662013版权所有
- * 官网：https://www.mytheme.cn
- */
-
-
 var MyTheme = {
 	'Browser': {
 		url: document.URL,
@@ -362,13 +355,13 @@ var MyTheme = {
 	    		$(".search-select .text").text($(this).html());
 		    });			
 			$(".search_submit").click(function() {
-	    		var value=$(".search_wd").val();
-                if (!value) {
-                    var wd=$(".search_wd").attr("placeholder");
-                    $(".search_wd").val(wd);
-                }
-	    	});
-	    	$(".open-search").click(function(){
+        var value=$(".search_wd").val();
+        if (!value) {
+          var wd=$(".search_wd").attr("placeholder");
+          $(".search_wd").val(wd);
+        }
+      });
+      $(".open-search").click(function(){
 				var seacrhBox=$(".search-box");
 				seacrhBox.addClass("active").siblings().hide();
 				seacrhBox.find(".form-control").focus();
@@ -378,6 +371,13 @@ var MyTheme = {
 					seacrhBox.find(".dropdown-box").hide();
 				});
 			});	
+      // 将搜索关键词静态化
+      $('#search').on('submit', function() {
+        const $elm = $(this);
+        const wd = $elm.find('input').val();
+        const action = $elm.attr('action');
+        $elm.attr('action', action.replace('.html', `/wd/${wd}.html`));
+      })
 		},
 		'Collapse': function() {
 			$(".text-collapse").each(function(){
@@ -420,9 +420,24 @@ var MyTheme = {
 		},
 		'History': {
 			'Init':function(){
+        // 页面加载的时候，将当前页面加入历史记录
 				if($(".vod_history").length){
             var $that = $(".vod_history");
             MyTheme.Other.History.Set($that.attr('data-name'),$that.attr('data-link'),$that.attr('data-pic'),$that.attr('data-part'),$that.attr('data-limit'));
+        }
+        // 当页面加载，初始化导航栏的历史记录
+        if($("#history-list").length){
+          var history_get = localStorage.getItem("history");
+          var result = "";
+          if (history_get){
+            var json = JSON.parse(history_get)
+            for(i=0;i<json.length;i++){
+                result += "<p><a class='text-333' href='"+json[i].link+"' title='"+json[i].name+"'><span class='pull-right text-red'>"+json[i].part+"</span>"+json[i].name+"</a></p>";
+            }
+          } else {
+            result += "<p style='padding: 80px 0; text-align: center'>您还没有看过影片哦</p>";
+          }
+          document.querySelector('#history-list').innerHTML = result;
         }
 			},
       'Get': function() {
@@ -691,7 +706,6 @@ $(function(){
 	MyTheme.Other.History.Init();
 	MyTheme.Other.Player();
 	MyTheme.Other.Close();
- 
 });
 
 window.addEventListener('message',function(e){

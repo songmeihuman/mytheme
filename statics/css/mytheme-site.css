@@ -1,10 +1,4 @@
 @charset "utf-8";
-/*!
- * 版本：MYUI Copyright © 2019
- * 作者：QQ726662013版权所有
- * 官网：https://www.mytheme.cn
- */
-
 /* header */
 .myui-header__top{ top:0; z-index:999; width:100%; min-height:60px; background-color: #fff; box-shadow: 0 2px 5px rgba(0,0,0,.1);}
 .top-fixed-down{margin-top:-60px;}

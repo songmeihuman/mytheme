@@ -313,6 +313,10 @@ var MAC={
                 }
             });
         }
+    },
+    'Gbook':{
+        'Login':0,
+        'Verify':0,
     }
 }
 
