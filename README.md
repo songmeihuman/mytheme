@@ -58,6 +58,10 @@
 在线地址: [https://dianying100.xyz/index.php/vod/detail/id/58567.html](https://dianying100.xyz/index.php/vod/detail/id/58567.html)  
 >《美猴王》是一部充满打斗场面的家庭喜剧，讲述了一只魅力十足的猴子手持金箍棒过五关斩六将，与上百个妖魔鬼怪以及龙王正面交锋，并直面最大的敌人—他自己！在此期间，一位年轻的乡村女孩逐渐瓦解了他以自我为  
 
+## 鹊刀门传奇  
+在线地址: [https://dianying100.xyz/index.php/vod/detail/id/58599.html](https://dianying100.xyz/index.php/vod/detail/id/58599.html)  
+>某朝末年，倭乱四起，宦官专权，东厂曹公公勾结倭寇，残害中原武林，意欲谋反。长海对外身份是鹊刀门掌门，实则是秘密抗倭组织成员，除了剿灭倭寇，另一项重要任务就是查出勾结倭寇的朝中汉奸。而同时曹公公也发  
+
 ## 雾山五行之犀川幻紫林篇  
 在线地址: [https://dianying100.xyz/index.php/vod/detail/id/24952.html](https://dianying100.xyz/index.php/vod/detail/id/24952.html)  
 >上古时期妖兽纵横，一位神秘道人分别授予了阴阳五行的特殊能力给金木水火土五个家族来抵抗妖兽。他们将妖兽驱赶到神隐雾山之中，设立结界。雾山之中另有强大灵力的麒麟兽常常吸引来那些想要提升妖力突破结界的妖兽们  
@@ -70,10 +74,6 @@
 在线地址: [https://dianying100.xyz/index.php/vod/detail/id/57778.html](https://dianying100.xyz/index.php/vod/detail/id/57778.html)  
 >双腿残疾的童松是矛盾安保公司的创始人，团队中还有两人，分别是擅长机械的安宁和心思单纯、身手了得的大牛。公司主要的业务是保护客户的人身和财产安全，俗称“保镖”。这天，他们接到一个为期三天的匿名委  
 
-## 谍之心 Heart of Stone  
-在线地址: [https://dianying100.xyz/index.php/vod/detail/id/57779.html](https://dianying100.xyz/index.php/vod/detail/id/57779.html)  
->瑞秋·斯通（盖尔·加朵饰）是一名情报特工，替强大的全球维安组织工作。眼见组织即将失去最珍贵但也最危险的资产“谍心”，一切只能靠她力挽狂澜。  
-
 ## 扫毒3：人在天涯  
 在线地址: [https://dianying100.xyz/index.php/vod/detail/id/57647.html](https://dianying100.xyz/index.php/vod/detail/id/57647.html)  
 >毒枭康素差（刘青云饰）一直带着手下张建行（郭富城饰）从事毒品交易，新加入的成员欧志远（古天乐饰）也因一次意外与两人有了过命交情，三人情同手足。康素差在香港的贩毒生意被警方查处后带团队逃到金三角发展  
@@ -82,9 +82,9 @@
 在线地址: [https://dianying100.xyz/index.php/vod/detail/id/25187.html](https://dianying100.xyz/index.php/vod/detail/id/25187.html)  
 >海洋霸主巨齿鲨，今夏再掀狂澜！乔纳斯·泰勒（杰森·斯坦森饰）与科学家张九溟（吴京饰）双雄联手，进入海底7000米深渊执行探索任务。他们意外遭遇史前巨兽海洋霸主巨齿鲨群的攻击，还将对战凶猛危险的远古  
 
-## 谜案追凶1  
-在线地址: [https://dianying100.xyz/index.php/vod/detail/id/58566.html](https://dianying100.xyz/index.php/vod/detail/id/58566.html)  
->秦勇受命调查惨绝人寰的分尸案，在梳理与刑侦的过程中真相逐渐浮出水面，而每一个犯罪...  
+## 东京爱情动作故事  
+在线地址: [https://dianying100.xyz/index.php/vod/detail/id/58747.html](https://dianying100.xyz/index.php/vod/detail/id/58747.html)  
+>东京爱情动作故事  
 
 ## 阴阳先生  
 在线地址: [https://dianying100.xyz/index.php/vod/detail/id/58725.html](https://dianying100.xyz/index.php/vod/detail/id/58725.html)  
