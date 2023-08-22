@@ -1,11 +1,4 @@
 @charset "utf-8";
-/*!
- * 版本：MYUI Copyright © 2019
- * 作者：QQ726662013版权所有
- * 官网：https://www.mytheme.cn
- */
-
-
 /* body */
 body, html{ width:100%; }
 body{ font-size:14px; line-height: 140%; -webkit-overflow-scrolling: touch; -webkit-transition:.5s; -o-transition:.5s; -moz-transition:.5s; -ms-transition:.5s; transition:.5s;}
@@ -147,7 +140,7 @@ textarea.form-control{ height: auto; padding: 10px;}
 .nav-btn > li a{ padding: 8px 12px; border-radius: 5px;}
 
 /* pic-tag */
-.pic-tag{ position: absolute; z-index: 99; padding:2px 5px; font-size: 12px; border-radius: 2px;}
+.pic-tag{ position: absolute; padding:2px 5px; font-size: 12px; border-radius: 2px;}
 .pic-tag-top{top: 5px; left: 5px;}
 .pic-tag-left{bottom: 5px; left: 5px;}
 .pic-tag-bottom{bottom: 5px; right: 5px;}
@@ -491,6 +484,8 @@ textarea.form-control{ height: auto; padding: 10px;}
 	/* modal */
 	.myui-modal__dialog{ width: 320px; margin: 50px auto;}
 	
+}
+
 @media (max-width: 767px){	
 	
 	.visible-xs { display: block !important;}
@@ -566,5 +561,8 @@ textarea.form-control{ height: auto; padding: 10px;}
 	/* more */
 	.m-margin-0{ margin: 0 !important;}
 	.m-padding-0{ padding: 0 !important;}
-	
+
+  /* index rank */
+  ul.index-rank {padding: 0 0 0 10px; display: flex; flex-direction: column; flex-wrap: wrap; overflow: auto; height: 105px;}
+  ul.index-rank > li {width: 100%}
 }
