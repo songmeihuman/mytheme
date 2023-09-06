@@ -443,60 +443,41 @@ var MyTheme = {
       'Get': function() {
         var value = localStorage.getItem("history")
         if (value) {
-          return JSON.parse(value)
+          return JSON.parse(value) || [];
+        }else{
+          return [];
         }
       },
 			'Set':function(name,link,pic,part,limit){
         pic = "";
         if(!link){ link = document.URL;}
-        var history = MyTheme.Other.History.Get()
-        var len=0;
-        var canadd=true;
-        if(history){
-          len=history.length;
-          $(history).each(function(){
-            if(name==this.name){
-              canadd=false;
-              var json="[";
-              $(history).each(function(i){
-                var temp_name,temp_img,temp_url,temp_part;
-                if(this.name==name){
-                  temp_name=name;temp_img=pic;temp_url=link;temp_part=part;
-                }else{
-                  temp_name=this.name;temp_img=this.pic;temp_url=this.link;temp_part=this.part;
-                }
-                json+="{\"name\":\""+temp_name+"\",\"pic\":\""+temp_img+"\",\"link\":\""+temp_url+"\",\"part\":\""+temp_part+"\"}";
-                if(i!=len-1)
-                  json+=",";
-              })
-              json+="]";
-              localStorage.setItem("history", json);
-              return false;
-            }
-          });
-			    }
-			    if(canadd){
-			        var json="[";
-			        var start=0;
-			        var isfirst="]";
-			        isfirst=!len?"]":",";
-			        json+="{\"name\":\""+name+"\",\"pic\":\""+pic+"\",\"link\":\""+link+"\",\"part\":\""+part+"\"}"+isfirst;
-			        if(len>limit-1)
-		            	len-=1;
-		        	for(i=0;i<len-1;i++){
-		            	json+="{\"name\":\""+history[i].name+"\",\"pic\":\""+history[i].pic+"\",\"link\":\""+history[i].link+"\",\"part\":\""+history[i].part+"\"},";
-		       	 	}
-		        	if(len>0){
-		            	json+="{\"name\":\""+history[len-1].name+"\",\"pic\":\""+history[len-1].pic+"\",\"link\":\""+history[len-1].link+"\",\"part\":\""+history[len-1].part+"\"}]";
-		        	}
-              localStorage.setItem("history", json);
-			    }  
+        let history = MyTheme.Other.History.Get()
+        let index = -1;
+        const newItem = {name, link, pic, part};
+        history = history.map((item, i) => {
+          if (item.name === name) {
+            index = i;
+            return newItem;
+          }else{
+            return item;
+          }
+        })
+        if (index === -1) {
+          history.unshift(newItem);
+        }else{
+          const tmp = history.splice(index, 1);
+          history.unshift(tmp[0]);
+        }
+        if (limit) {
+          history = history.slice(0, limit);
+        }
+        localStorage.setItem("history", JSON.stringify(history));
 			}
 		},
 		'Player': function() {
 			if($("#player-left").length){
 				var PlayerLeft = $("#player-left");
-		    	var PlayerSide = $("#player-sidebar");
+        var PlayerSide = $("#player-sidebar");
 				var LeftHeight = PlayerLeft.outerHeight();
 				var Position = $("#playlist li.active").position().top;
 				$("#player-sidebar-is").click(function() {
