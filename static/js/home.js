@@ -350,19 +350,19 @@ var MAC={
     'IsLogin':0,
     'UserId':'',
     'UserName':'',
-    'Portrait':'',
+    'UserNickName':'',
     'Init': function() {
       if(MAC.Cookie.Get('user_id') !=undefined && MAC.Cookie.Get('user_id')){
         MAC.User.UserId = MAC.Cookie.Get('user_id');
         MAC.User.UserName = MAC.Cookie.Get('user_name');
-        MAC.User.Portrait = MAC.Cookie.Get('user_portrait');
+        MAC.User.UserNickName = MAC.Cookie.Get('user_nick_name');
         MAC.User.IsLogin = 1;
       }
 
       if(MAC.User.IsLogin === 1) {
         const userArea = $('#user_area');
         userArea.find('> a > i').attr('class', 'fa fa-user-circle-o');
-        userArea.find('.username').text(MAC.User.UserName);
+        userArea.find('.username').text(MAC.User.UserNickName || MAC.User.UserName);
         userArea.find('.btn_login').hide();
         userArea.find('.btn_logout').show();
       }
