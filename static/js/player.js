@@ -58,8 +58,8 @@ var MacPlayer = {
             a.url = unescape(a.url);
             a.url_next = unescape(a.url_next)
         } else if (a.encrypt == '2') {
-            a.url = unescape(base64decode(a.url));
-            a.url_next = unescape(base64decode(a.url_next))
+            a.url = unescape(atob(a.url));
+            a.url_next = unescape(atob(a.url_next))
         }
         this.Agent = navigator.userAgent.toLowerCase();
         this.Width = MacPlayerConfig.width;
