@@ -352,7 +352,7 @@ var MAC={
     'UserName':'',
     'UserNickName':'',
     'Init': function() {
-      if(MAC.Cookie.Get('user_id') !=undefined && MAC.Cookie.Get('user_id')){
+      if(MAC.Cookie.Get('user_id') !== undefined && MAC.Cookie.Get('user_id') !== '0'){
         MAC.User.UserId = MAC.Cookie.Get('user_id');
         MAC.User.UserName = MAC.Cookie.Get('user_name');
         MAC.User.UserNickName = MAC.Cookie.Get('user_nick_name');
