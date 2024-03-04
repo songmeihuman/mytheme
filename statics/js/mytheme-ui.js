@@ -684,7 +684,7 @@ $(function () {
   MyTheme.Other.Collapse();
   MyTheme.Other.Slidedown();
   MyTheme.Other.Scrolltop();
-  MyTheme.Other.Player();
+  // MyTheme.Other.Player();
   MyTheme.Other.Close();
 });
 
