@@ -480,6 +480,47 @@ var MyTheme = {
           });
         });
       });
+      $(".sort-player-list").each(function() {
+        $(this).on("click", function (e) {
+          e.preventDefault();
+          if ($(this).hasClass("active")) { return; }
+          $(this).siblings().removeClass("active");
+          $(this).addClass("active")
+          $(this).parent().parent().parent().find(".sort-list").each(function () {
+            var playlist = $(this).find("li");
+            for (let i = 0, j = playlist.length - 1; i < j;) {
+              var l = playlist.eq(i).clone(true);
+              var r = playlist.eq(j).replaceWith(l);
+              playlist.eq(i).replaceWith(r);
+              ++i;
+              --j;
+            }
+          });
+        });
+      });
+      $('.filter-player-list').on('click', function() {
+        const target = this
+        if ($(this).hasClass('active')) { return; }
+
+        const parent = $(target).parent().parent().parent();
+        const version = target.getAttribute('data-lang');
+        const lis = $('ul > li', parent);
+        $(target).siblings().removeClass("active");
+        $(target).addClass('active');
+        lis.hide();
+        $('> a', lis).filter((i, x) => {
+          switch (version) {
+            case "1":
+              return x.innerText.includes('国语');
+            case "2":
+              return x.innerText.includes('粤语');
+            case "3":
+              return !x.innerText.includes('粤语') && !x.innerText.includes('国语');
+            default:
+              return true;
+          }
+        }).parent().show();
+      });
     },
     'Search': function () {
       $(".search-select p,.search-select li").click(function () {
