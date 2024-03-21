@@ -14,6 +14,7 @@ p{ margin-bottom: 10px;}
 .container{ position: relative; margin-right: auto; margin-left: auto;}
 .row{ position: relative; margin: 0; padding: 0;}
 .container:before,.container:after,.row:before,.row:after,.clearfix:before, .clearfix:after{ display: table; content: " "; clear: both;}
+.width-100{width:100%;}
 
 /* text */
 h1{ font-size:36px;}
@@ -487,7 +488,7 @@ padding-bottom: 56.25%; z-index:99; }
 	
 	/* panel-head */
 	.myui-panel__head .more{ line-height: 35px;}
-	.myui-panel__head.active{ height: 35px;}
+	.myui-panel__head.active{ min-height: 35px;}
 	
 	/* nav */
 	.nav-head > li, .nav-tabs > li{ margin-top: 8px; margin-left: 15px;}
