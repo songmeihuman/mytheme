@@ -192,7 +192,7 @@ textarea.form-control{ height: auto; padding: 10px;}
 .myui-vodlist__thumb{ display: block; position: relative; background-position: 50% 50% !important; background-size: cover !important; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,.1);}
 .myui-vodlist__thumb.picture { background: none; overflow: hidden;}
 .myui-vodlist__thumb.picture img{ position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
-.myui-vodlist__thumb .play{ opacity: 0; position: absolute; top: 0; z-index: 1; width: 100%; height: 100%; background: rgba(0,0,0,0.2) url(../img/play.png) center no-repeat; background-color: rgba(0,0,0,.2); -webkit-transition: all ease-out .35s; transition: all ease-out .35s;}
+.myui-vodlist__thumb .play{ opacity: 0; position: absolute; top: 0; z-index: 1; width: 100%; height: 100%; background-color: rgba(0,0,0,.2); -webkit-transition: all ease-out .35s; transition: all ease-out .35s;}
 .myui-vodlist__thumb .play-v{ opacity: 0; position: absolute; top: 0; z-index: 1; width: 100%; height: 100%; background-color: rgba(0,0,0,.2); -webkit-transition: all ease-out .35s; transition: all ease-out .35s;}
 .myui-vodlist__thumb .play.active{ opacity: 1;}
 .myui-vodlist__thumb:hover .play,.myui-vodlist__thumb:hover .play-v{ opacity: 1;}

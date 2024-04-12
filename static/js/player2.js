@@ -28,10 +28,10 @@ function videoPlay(sid, nid, quiet) {
   player_aaaa.link = link
   player_aaaa.from = playlist.getAttribute('data-from')
 
-  const nextTarget = playlist.querySelector(`li[data-nid="${nid+1}"]`)
+  const nextTarget = playlist.querySelector(`li[data-nid="${nid + 1}"]`)
   if (nextTarget) {
-      player_aaaa.link_next = nextTarget.getAttribute('data-url')
-      player_aaaa.url_next = nextTarget.getAttribute('data-link')
+    player_aaaa.link_next = nextTarget.getAttribute('data-url')
+    player_aaaa.url_next = nextTarget.getAttribute('data-link')
   }
   // 更新url
   history.replaceState({}, null, link);
@@ -40,10 +40,10 @@ function videoPlay(sid, nid, quiet) {
     const playerPage = document.getElementById('playvideo').contentWindow
     if (playerPage.switchVideo) {
       playerPage.switchVideo()
-    }else{
+    } else {
       playerPage.location.reload()
     }
-    setTimeout(function() {
+    setTimeout(function () {
       // 更新播放量
       MAC.Hits.Init();
       // 更新播放列表
@@ -55,7 +55,7 @@ function videoPlay(sid, nid, quiet) {
       );
       var $that = $(".mac_ulog_set");
       MAC.Ulog.Set(
-        $that.attr('data-type'), $that.attr('data-mid'), $that.attr('data-id'), 
+        $that.attr('data-type'), $that.attr('data-mid'), $that.attr('data-id'),
         player_aaaa.sid, player_aaaa.nid, $that.attr('data-name'), target.innerText.trim(),
       );
     }, 1000)
@@ -111,9 +111,9 @@ function filterVideo() {
     }
   }).parent().show();
 }
-ready(function(){
-  document.querySelectorAll('.playlist').forEach(function(playlist) {
-    playlist.addEventListener('click', function(e) {
+ready(function () {
+  document.querySelectorAll('.playlist').forEach(function (playlist) {
+    playlist.addEventListener('click', function (e) {
       if (e.target.nodeName !== 'A') {
         return
       }
@@ -126,7 +126,7 @@ ready(function(){
   })
   const params = new URLSearchParams(window.location.search)
   videoPlay(parseInt(params.get('sid')) || 1, parseInt(params.get('nid')) || 1, true)
-  document.querySelector('#playvideo').src = "/static/player/dplayer.html";
+  document.querySelector('#playvideo').src = "/index.php/player.html";
 
   $('.filter-button').on('click', filterVideo)
 })
