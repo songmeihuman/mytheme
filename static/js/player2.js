@@ -49,14 +49,15 @@ function videoPlay(sid, nid, quiet) {
       // 更新播放列表
       var history = document.querySelector(".vod_history");
       MyTheme.History.Set(
-        history.getAttribute('data-name'), link,
-        history.getAttribute('data-pic'), target.innerText.trim(),
-        history.getAttribute('data-limit')
+        history.getAttribute('data-name'), history.getAttribute('data-id'),
+        player_aaaa.sid, player_aaaa.nid, target.innerText.trim(),
+        history.getAttribute('data-pic'), history.getAttribute('data-limit')
       );
       var $that = $(".mac_ulog_set");
       MAC.Ulog.Set(
         $that.attr('data-type'), $that.attr('data-mid'), $that.attr('data-id'),
         player_aaaa.sid, player_aaaa.nid, $that.attr('data-name'), target.innerText.trim(),
+        $that.attr('data-pic'),
       );
     }, 1000)
   }

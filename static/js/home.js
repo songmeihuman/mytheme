@@ -1,7 +1,7 @@
-String.prototype.replaceAll = function(s1,s2){ return this.replace(new RegExp(s1,"gm"),s2); }
-String.prototype.trim=function(){ return this.replace(/(^\s*)|(\s*$)/g, ""); }
+String.prototype.replaceAll = function (s1, s2) { return this.replace(new RegExp(s1, "gm"), s2); }
+String.prototype.trim = function () { return this.replace(/(^\s*)|(\s*$)/g, ""); }
 
-var MAC={
+var MAC = {
   'Url': document.URL,
   'Title': document.title,
   'UserAgent': function () {
@@ -19,27 +19,6 @@ var MAC={
       'weixin': ua.indexOf('MicroMessenger') > -1 //是否微信 ua.match(/MicroMessenger/i) == "micromessenger",
     };
   }(),
-  'Copy': function (s) {
-    if (window.clipboardData) { window.clipboardData.setData("Text", s); }
-    else {
-      if ($("#mac_flash_copy").get(0) == undefined) { $('<div id="mac_flash_copy"></div>'); } else { $('#mac_flash_copy').html(''); }
-      $('#mac_flash_copy').html('<embed src=' + maccms.path + '"images/_clipboard.swf" FlashVars="clipboard=' + escape(s) + '" width="0" height="0" type="application/x-shockwave-flash"></embed>');
-    }
-    MAC.Pop.Msg(100, 20, '复制成功', 1000);
-  },
-  'Home': function (o, u) {
-    try {
-      o.style.behavior = 'url(#default#homepage)'; o.setHomePage(u);
-    }
-    catch (e) {
-      if (window.netscape) {
-        try { netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); }
-        catch (e) { MAC.Pop.Msg(150, 40, '此操作被浏览器拒绝！请手动设置', 1000); }
-        var moz = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
-        moz.setCharPref('browser.startup.homepage', u);
-      }
-    }
-  },
   'Open': function (u, w, h) {
     window.open(u, 'macopen1', 'toolbars=0, scrollbars=0, location=0, statusbars=0,menubars=0,resizable=yes,width=' + w + ',height=' + h + '');
   },
@@ -71,9 +50,14 @@ var MAC={
     }
   },
   'Ajax': function (url, type, dataType, data, sfun, efun, cfun) {
+    if (typeof type === 'function') {
+      sfun = type;
+      type = null;
+    }
     type = type || 'get';
     dataType = dataType || 'json';
     data = data || '';
+    sfun = sfun || '';
     efun = efun || '';
     cfun = cfun || '';
 
@@ -90,7 +74,7 @@ var MAC={
         if (efun) efun(XHR, textStatus, errorThrown);
       },
       success: function (data) {
-        sfun(data);
+        if (sfun) sfun(data);
       },
       complete: function (XHR, TS) {
         if (cfun) cfun(XHR, TS);
@@ -116,22 +100,10 @@ var MAC={
   },
   'Hits': {
     'Init': function () {
-      if ($('.mac_hits').length == 0) {
-        return;
+      if ($('.mac_hits').length != 0) {
+        var $that = $(".mac_hits");
+        MAC.Ajax(maccms.path + '/index.php/ajax/hits?mid=' + $that.attr("data-mid") + '&id=' + $that.attr("data-id") + '&type=update');
       }
-      var $that = $(".mac_hits");
-
-      MAC.Ajax(maccms.path + '/index.php/ajax/hits?mid=' + $that.attr("data-mid") + '&id=' + $that.attr("data-id") + '&type=update', 'get', 'json', '', function (r) {
-        if (r.code == 1) {
-          $(".mac_hits").each(function (i) {
-            $type = $(".mac_hits").eq(i).attr('data-type');
-            if ($type != 'insert') {
-              $('.' + $type).html(eval('(r.data.' + $type + ')'));
-            }
-          });
-        }
-      });
-
     }
   },
   'Digg': {
@@ -156,19 +128,6 @@ var MAC={
 
         }
       });
-    }
-  },
-  'Search': {
-    'Init': function () {
-      $('.mac_search').click(function () {
-        var that = $(this);
-        var url = that.attr('data-href') ? that.attr('data-href') : maccms.path + '/index.php/vod/search.html';
-        location.href = url + '?wd=' + encodeURIComponent($("#wd").val());
-      });
-    },
-    'Submit': function () {
-
-      return false;
     }
   },
   'AdsWrap': function (w, h, n) {
@@ -308,58 +267,46 @@ var MAC={
     'Verify': 0,
   },
   'Ulog': {
+    'GetUrl': function(ac, mid, id, type) {
+      return `${maccms.path}/index.php/user/ajax_ulog?ac=${ac}&mid=${mid}&id=${id}&type=${type}`;
+    },
     'Init': function () {
-      if ($(".mac_ulog_set").attr('data-mid')) {
-        var $that = $(".mac_ulog_set");
-        MAC.Ulog.Set(
-          $that.attr('data-type'), $that.attr('data-mid'), $that.attr('data-id'), $that.attr('data-sid'),
-          $that.attr('data-nid'), $that.attr('data-name'), $that.attr('data-part'),
-        );
-      }
-      MAC.Ulog.Click();
     },
     'Get': function (mid, id, type, page, limit, call) {
-      MAC.Ajax(maccms.path + '/index.php/user/ajax_ulog?ac=list&mid=' + mid + '&id=' + id + '&type=' + type + '&page=' + page + '&limit=' + limit, 'get', 'json', '', call);
+      return $.get(`${MAC.Ulog.GetUrl('list', mid, id, type)}&page=${page}&limit=${limit}`, call);
     },
-    'Set': function (type, mid, id, sid, nid, name, part) {
-      if (!MAC.User.IsLogin) return;
-      $.get(maccms.path + `/index.php/user/ajax_ulog?ac=set&mid=${mid}&id=${id}&sid=${sid}&nid=${nid}&type=${type}&name=${name}&part=${part}`);
+    'Set': function (type, mid, id, sid, nid, name, part, pic) {
+      if (!MAC.User.IsLogin) return $.Deferred().reject('no login');
+      return $.get(`${MAC.Ulog.GetUrl('set', mid, id, type)}&sid=${sid}&nid=${nid}&name=${name}&part=${part}&pic=${pic}`);
     },
-    'Click': function () {
-      $('body').on('click', 'a.mac_ulog', function (e) {
-        //是否需要验证登录
-        if (MAC.User.IsLogin == 0) {
-          alert("请先登录！")
-          return;
-        }
-        var $that = $(this);
-        if ($that.attr("data-id")) {
-          MAC.Ajax(maccms.path + '/index.php/user/ajax_ulog?ac=set&mid=' + $that.attr("data-mid") + '&id=' + $that.attr("data-id") + '&type=' + $that.attr("data-type"), 'get', 'json', '', function (r) {
-            MAC.Pop.Msg(100, 20, r.msg, 1000);
-            if (r.code == 1) {
-              $that.addClass('disabled');
-            } else {
-              $that.attr('title', r.msg);
-            }
-          });
-        }
-      });
+    'Clean': function (type, mid, id) {
+      if (!MAC.User.IsLogin) return $.Deferred().reject('no login');
+      return $.get(`${MAC.Ulog.GetUrl('clean', mid, id, type)}`);
+    },
+    'Remove': function (type, mid, id) {
+      if (!MAC.User.IsLogin) return $.Deferred().reject('no login');
+      return $.get(`${MAC.Ulog.GetUrl('remove', mid, id, type)}`);
+    },
+  },
+  'Vod': {
+    'GetUrl': function(id, sid, nid) {
+      return `${maccms.path}/index.php/vod/play/id/${id}.html?sid=${sid}&nid=${nid}`;
     }
   },
   'User': {
-    'IsLogin':0,
-    'UserId':'',
-    'UserName':'',
-    'UserNickName':'',
-    'Init': function() {
-      if(MAC.Cookie.Get('user_id') !== undefined && MAC.Cookie.Get('user_id') !== '0'){
+    'IsLogin': 0,
+    'UserId': '',
+    'UserName': '',
+    'UserNickName': '',
+    'Init': function () {
+      if (MAC.Cookie.Get('user_id') !== undefined && MAC.Cookie.Get('user_id') !== '0') {
         MAC.User.UserId = MAC.Cookie.Get('user_id');
         MAC.User.UserName = MAC.Cookie.Get('user_name');
         MAC.User.UserNickName = MAC.Cookie.Get('user_nick_name');
         MAC.User.IsLogin = 1;
       }
 
-      if(MAC.User.IsLogin === 1) {
+      if (MAC.User.IsLogin === 1) {
         const userArea = $('#user_area');
         userArea.find('> a > i').attr('class', 'fa fa-user-circle-o');
         userArea.find('.username').text(MAC.User.UserNickName || MAC.User.UserName);
@@ -370,19 +317,19 @@ var MAC={
   }
 }
 
-$(function(){
+$(function () {
   //异步加载图片初始化
   MAC.Image.Lazyload.Show();
   //用户
   MAC.User.Init();
-  setTimeout(function() {
+  setTimeout(function () {
     //初始化用户日志相关操作，包含1浏览2收藏3想看4点播5下载
     MAC.Ulog.Init();
     //点击数量
     MAC.Hits.Init();
     //二维码初始化
-    MAC.Qrcode.Init();
+    // MAC.Qrcode.Init();
     //顶和踩初始化
-    MAC.Digg.Init();
+    // MAC.Digg.Init();
   }, 1000);
 });

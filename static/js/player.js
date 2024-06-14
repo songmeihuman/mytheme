@@ -1,4 +1,4 @@
-﻿var killErrors=function(value){return true};window.onerror=null;window.onerror=killErrors;
+﻿// var killErrors=function(value){return true};window.onerror=null;window.onerror=killErrors;
 
 var MacPlayer = {
     'GetDate': function (f, t) {
