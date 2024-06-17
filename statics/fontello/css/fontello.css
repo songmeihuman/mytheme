@@ -54,3 +54,4 @@
 .fa-commenting:before { content: '\f27a'; } /* '' */
 .fa-user-circle:before { content: '\f2bd'; } /* '' */
 .fa-user-circle-o:before { content: '\f2be'; } /* '' */  
+.fa-heart:before { content: '\e804'; }

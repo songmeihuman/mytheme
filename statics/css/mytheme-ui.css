@@ -423,9 +423,9 @@ textarea.form-control{ height: auto; padding: 10px;}
 .col-pd,.col-lg-1,.col-lg-10,.col-lg-2,.col-lg-3,.col-lg-4,.col-lg-5,.col-lg-6,.col-lg-7,.col-lg-8,.col-lg-9,.col-md-1,.col-md-10,.col-md-2,.col-md-3,.col-md-4,.col-md-5,.col-md-6,.col-md-7,.col-md-8,.col-md-9,.col-sm-1,.col-sm-10,.col-sm-2,.col-sm-3,.col-sm-4,.col-sm-5,.col-sm-6,.col-sm-7,.col-sm-8,.col-sm-9,.col-xs-1,.col-xs-10,.col-xs-2,.col-xs-3,.col-xs-4,.col-xs-5,.col-xs-6,.col-xs-7,.col-xs-8,.col-xs-9{position:relative;min-height:1px}.col-xs-1,.col-xs-10,.col-xs-2,.col-xs-3,.col-xs-4,.col-xs-5,.col-xs-6,.col-xs-7,.col-xs-8,.col-xs-9,.col-xs-wide-1,.col-xs-wide-10,.col-xs-wide-15,.col-xs-wide-2,.col-xs-wide-25,.col-xs-wide-3,.col-xs-wide-35,.col-xs-wide-4,.col-xs-wide-45,.col-xs-wide-5,.col-xs-wide-55,.col-xs-wide-6,.col-xs-wide-65,.col-xs-wide-7,.col-xs-wide-75,.col-xs-wide-8,.col-xs-wide-85,.col-xs-wide-9,.col-xs-wide-95{float:left}.col-xs-10{width:10%}.col-xs-9{width:11.1111111%}.col-xs-8{width:12.5%}.col-xs-7{width:14.2857143%}.col-xs-6{width:16.6666667%}.col-xs-5{width:20%}.col-xs-4{width:25%}.col-xs-3{width:33.3333333%}.col-xs-2{width:50%}.col-xs-1{width:100%}.col-xs-wide-10{width:10%}.col-xs-wide-9{width:90%}.col-xs-wide-8{width:80%}.col-xs-wide-7{width:70%}.col-xs-wide-6{width:60%}.col-xs-wide-5{width:50%}.col-xs-wide-4{width:40%}.col-xs-wide-3{width:30%}.col-xs-wide-2{width:20%}.col-xs-wide-15{width:15%}.col-xs-wide-95{width:95%}.col-xs-wide-85{width:85%}.col-xs-wide-75{width:75%}.col-xs-wide-65{width:65%}.col-xs-wide-55{width:55%}.col-xs-wide-45{width:45%}.col-xs-wide-35{width:35%}.col-xs-wide-25{width:25%}.img-xs-300{ width: 300px;}.img-xs-220{ width: 220px;}.img-xs-190{ width: 190px;}.img-xs-160{ width: 160px;}.img-xs-150{ width: 150px;}.img-xs-140{ width: 140px;}.img-xs-130{ width: 130px;}.img-xs-120{ width: 120px;}.img-xs-110{ width: 110px;}.img-xs-100{ width: 100px;}.img-xs-90{ width: 90px;}.img-xs-80{ width: 80px;}.img-xs-70{ width: 70px;}
 
 /* sidebar */
-#sidebar { background-color: white; }
-#sidebar .sidebar-wrapper { overflow-y: auto; height: 100%; }
-#sidebar .tab-pane { padding: 0 5px; }
+.sidebar { background-color: white; }
+.sidebar .sidebar-wrapper { overflow-y: auto; height: 100%; }
+.sidebar .tab-pane { padding: 0 5px; }
 
 /* player list */
 .player-op {padding:0 1em; display:flex; justify-content:space-between;}

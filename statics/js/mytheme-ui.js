@@ -283,17 +283,59 @@ var MyTheme = {
       }
     }
   },
-  'FlowList': {
-    'ShowButtons': function (event) {
-      event.preventDefault();
-      // event.target.classList.add('show-buttons');
-    },
-    'MakeHtml': function (datas) {
+  'SideBar': class SideBar {
+    constructor(selector, toggler, pancels) {
+      this.selector = $(selector);
+      this.toggler = toggler;
+      this.pancels = pancels;
+    }
+    render() {
+      const root = this.selector;
+      root.simplerSidebarCss3({
+        toggler: this.toggler,
+        quitter: ".quit-sidebar",
+        align: "right",
+        events: {
+          onOpen: x => {
+            root.find('.nav a:first').tab('show');
+          }
+        }
+      });
+      this.watchEvents();
+      root.show();
+    }
+    watchEvents() {
+      this.selector.find('.nav a').on('show.bs.tab', e => {
+        if (e.target.getAttribute('data-init') === "1") {
+          return;
+        }
+        e.target.setAttribute('data-init', "1");
+        const targetID = e.target.getAttribute('href').slice(1);
+        for (const pancel of this.pancels) {
+          if (pancel.selector.attr('id') == targetID) {
+            pancel.render();
+            break;
+          }
+        }
+      })
+    }
+  },
+  'SideBarPancel': class SideBarPancel {
+    constructor(name, selector, dataProvider, requireLogin) {
+      this.name = name;
+      this.selector = $(selector);
+      this.dataProvider = dataProvider;
+      this.requireLogin = !!requireLogin;
+    }
+    init() {
+      this.dataProvider.Init();
+    }
+    renderFlow(datas) {
       let result = "";
       const vods = datas.sort((a, b) => b.time - a.time);
       const dupUlogs = {};
       let lastTimeGroup = "";
-      for (i = 0; i < vods.length; i++) {
+      for (let i = 0; i < vods.length; i++) {
         const vod = vods[i];
         if (!vod.id || vod.id in dupUlogs) { continue }
         dupUlogs[vod.id] = 1;
@@ -303,13 +345,14 @@ var MyTheme = {
           result += `<p class='text-muted'>${timeGroup}</p>`;
         }
         const pic = vod.pic || '/template/mytheme/statics/img/lazyload.png';
-        result += `<div class="flow-list-item" onlongpress="MyTheme.FlowList.ShowButtons(event)">
+        const link = MAC.Vod.GetUrl(vod.id, vod.sid, vod.nid);
+        result += `<div class="flow-list-item">
           <div class="flow-list-item-pic">
-            <a class="myui-vodlist__thumb lazyload" href='${vod.link}' data-original="${pic}">
+            <a class="myui-vodlist__thumb lazyload" href='${link}' data-original="${pic}">
             </a>
           </div>
           <div class="flow-list-item-note">
-            <a class='text-333' href='${vod.link}'>
+            <a class='text-333' href='${link}'>
               ${vod.name}
               <div class='text-red'>${vod.part}</div>
             </a>
@@ -320,87 +363,78 @@ var MyTheme = {
         </div>`;
       }
       return result;
-    },
-  },
-  'Fav': {
-    'Init': function () {
-    },
-    'Set': function () {
-      if ($(".mac_ulog_set").attr('data-mid')) {
-        var $that = $(".mac_ulog_set");
-        MAC.Ulog.Set(2, $that.attr('data-mid'), $that.attr('data-id'), $that.attr('data-sid'),
-          $that.attr('data-nid'), $that.attr('data-name'), $that.attr('data-part'),
-        );
+    }
+    // 监控js事件
+    watchEvents() {
+      const that = this;
+      this.selector.find('.sidebar-head').on('click', () => this.clear());
+      this.selector.on('click', 'i.fa-cancel', async function () {
+        if (!confirm("您确定要删除吗？")) {
+          return;
+        }
+        const id = $(this).data('id');
+        await that.remove(id)
+        $(this).parents('.flow-list-item:first').remove();
+      });
+    }
+    // 根据数据渲染侧边栏
+    renderData(data) {
+      let html = `<p class='text-muted sidebar-head'><a class='pull-right text-red' href='javascript:;'>[清空]</a>${this.name}</p>`;
+      if (data) {
+        html += this.renderFlow(data);
+      } else {
+        html += "<p style='padding: 80px 0; text-align: center'>这里什么都没有</p>";
       }
-    },
-    'Get': function () {
-      const root = $("#remote_history");
-      if (!MAC.User.IsLogin) {
-        const result = `<p style='padding: 80px 0; text-align: center'>请先登录</p>`;
-        root.html(result);
+      this.selector.html(html);
+      this.watchEvents();
+      MyTheme.Images.Lazyload();
+    }
+    // 渲染侧边栏
+    async render() {
+      if (self.requireLogin && !MAC.User.IsLogin) {
+        this.selector.html("<p style='padding: 80px 0; text-align: center'>请先登录</p>");
         return;
       }
+      this.renderLoading(async (cancel) => {
+        const data = await this.dataProvider.Get();
+        cancel();
+        this.renderData(data);
+      });
+    }
+    // 显示提示：正在加载中
+    async renderLoading(callback) {
       let waiting = 2;
       const intervalId = setInterval(() => {
         if (waiting !== 0) {
           const result = `<p style='padding: 80px 0; text-align: center'>正在加载数据${''.padEnd(waiting % 4, '.')}</p>`;
-          root.html(result);
+          this.selector.html(result);
           waiting++;
         }
       }, 1000);
-      MAC.Ulog.Get(1, '', 2, 1, 1000, (resp) => {
-        let result = "";
-        if (resp.code !== 1) {
-          result = `<p style='padding: 80px 0; text-align: center'>${resp.msg}</p>`;
-        } else if (resp.total === 0) {
-          result = "<p style='padding: 80px 0; text-align: center'>您还没有看过影片哦</p>";
-        } else {
-          result = MyTheme.FlowList.MakeHtml(resp.list);
-        }
+      const cancel = () => {
         clearInterval(intervalId);
         waiting = 0;
-        root.html(result);
-      }).fail(x => {
-        const result = "<p style='padding: 80px 0; text-align: center'>网络错误，请稍后重试。</p>";
-        clearInterval(intervalId);
-        waiting = 0;
-        root.html(result);
-      })
-    },
+      }
+      await callback(cancel);
+    }
+    remove(id) {
+      return this.dataProvider.Remove(id);
+    }
+    async clear() {
+      if (!confirm(`您确定要清空${this.name}吗？`)) {
+        return;
+      }
+      await this.dataProvider.Clear();
+      window.location.reload();
+    }
   },
-  'LocalHistory': {
-    'Init': function () {
-      // 页面加载的时候，将当前页面加入历史记录
-      if ($(".vod_history").length) {
-        var $that = $(".vod_history");
-        MyTheme.LocalHistory.Set($that.attr('data-name'), $that.attr('data-id'),
-          $that.attr('data-sid'), $that.attr('data-nid'), $that.attr('data-part'),
-          $that.attr('data-pic'), $that.attr('data-limit'));
-      }
-      $("#local_history").on('click', 'i.fa-cancel', function () {
-        if (confirm("您确定要删除吗？")) {
-          let id = $(this).data('id');
-          if (MyTheme.LocalHistory.Remove(id)) {
-            $(this).parents('.flow-list-item:first').remove();
-          }
-        }
-      })
-    },
-    'Load': function () {
-      var history_get = localStorage.getItem("history");
-      var result = "<p class='text-muted'><a class='pull-right text-red' href='javascript:;' onclick='MyTheme.LocalHistory.Clean()'>[清空]</a>本地播放记录</p>";
-      if (history_get) {
-        let json = JSON.parse(history_get);
-        let flowListItems = json.map(x => MyTheme.LocalHistory.ToFlowListItem(x))
-        result += MyTheme.FlowList.MakeHtml(flowListItems);
-      } else {
-        result += "<p style='padding: 80px 0; text-align: center'>您还没有看过影片哦</p>";
-      }
-      $("#local_history").html(result);
-      MyTheme.Images.Lazyload();
-    },
-    'ToFlowListItem': function (data) {
-      if (data.link) {
+  'LocalData': class LocalData {
+    constructor(name) {
+      this.name = name;
+    }
+    Init() { }
+    ToFlowListItem(data) {
+      if (!data.time) {
         // 兼容旧格式
         const pattern = /\/index\.php\/vod\/play\/id\/([^/.]+)\.html\?sid=([^&]+)&nid=([^&]+)/;
         const match = data.link.match(pattern);
@@ -410,42 +444,41 @@ var MyTheme = {
           data.nid = match[3];
           data.time = 0;
         }
-      } else {
-        data.link = MAC.Vod.GetUrl(data.id, data.sid, data.nid);
+        // } else {
+        //   data.link = MAC.Vod.GetUrl(data.id, data.sid, data.nid);
       }
       return data;
-    },
-    'Clean': function () {
-      if (confirm("您确定要清空本地播放记录吗？")) {
-        localStorage.clear()
-        window.location.reload()
-      }
-    },
-    'Remove': function (id) {
-      let history = MyTheme.LocalHistory.Get();
-      let index = history.findIndex(x => x.id == id);
+    }
+    Clear() {
+      localStorage.removeItem(this.name);
+      return Promise.resolve(true);
+    }
+    async Remove(id) {
+      let data = await this.Get();
+      let index = data.findIndex(x => x.id == id);
       if (index > -1) {
-        history.splice(index, 1);
-        localStorage.setItem("history", JSON.stringify(history));
+        data.splice(index, 1);
+        localStorage.setItem(this.name, JSON.stringify(data));
         return true;
       } else {
         return false;
       }
-    },
-    'Get': function () {
-      var value = localStorage.getItem("history")
+    }
+    async Get() {
+      var value = localStorage.getItem(this.name)
       if (value) {
-        return JSON.parse(value) || [];
+        let values = JSON.parse(value) || [];
+        return values.map(this.ToFlowListItem);
       } else {
         return [];
       }
-    },
-    'Set': function (name, id, sid, nid, part, pic, limit) {
-      let history = MyTheme.LocalHistory.Get()
+    }
+    async Set(name, mid, id, sid, nid, part, pic, limit) {
+      let data = await this.Get();
       const newItem = { name, id, sid, nid, part, pic, time: parseInt(Date.now() / 1000) };
       // 将当前数据移到最前面
       let index = -1;
-      history = history.map((item, i) => {
+      data = data.map((item, i) => {
         if (item.name === name) {
           index = i;
           return newItem;
@@ -454,129 +487,94 @@ var MyTheme = {
         }
       })
       if (index === -1) {
-        history.unshift(newItem);
+        data.unshift(newItem);
       } else if (index !== 0) {
-        const tmp = history.splice(index, 1);
-        history.unshift(tmp[0]);
+        const tmp = data.splice(index, 1);
+        data.unshift(tmp[0]);
       }
       if (limit) {
         // 只保存limit个数据，多出来的要删除，同时要删除播放位置
-        remove_history = history.slice(limit);
-        if (remove_history.length) {
-          history = history.slice(0, limit);
+        const remove_data = data.slice(limit);
+        if (remove_data.length) {
+          data = data.slice(0, limit);
         }
       }
-      localStorage.setItem("history", JSON.stringify(history));
+      localStorage.setItem(this.name, JSON.stringify(data));
     }
   },
-  'RemoteHistory': {
-    "Init": function () {
-      if ($(".mac_ulog_set").attr('data-mid')) {
-        var $that = $(".mac_ulog_set");
-        MAC.Ulog.Set(
-          $that.attr('data-type'), $that.attr('data-mid'), $that.attr('data-id'), $that.attr('data-sid'),
-          $that.attr('data-nid'), $that.attr('data-name'), $that.attr('data-part'), $that.attr('data-pic')
-        );
-      }
-      $("#remote_history").on('click', 'i.fa-cancel', function () {
-        if (confirm("您确定要删除吗？")) {
-          let id = $(this).data('id');
-          MyTheme.RemoteHistory.Remove(id)
-          $(this).parents('.flow-list-item:first').remove();
-        }
-      })
-    },
-    'Load': function () {
-      const root = $("#remote_history");
-      if (!MAC.User.IsLogin) {
-        const result = `<p style='padding: 80px 0; text-align: center'>请先登录</p>`;
-        root.html(result);
-        return;
-      }
-      let waiting = 2;
-      const intervalId = setInterval(() => {
-        if (waiting !== 0) {
-          const result = `<p style='padding: 80px 0; text-align: center'>正在加载数据${''.padEnd(waiting % 4, '.')}</p>`;
-          root.html(result);
-          waiting++;
-        }
-      }, 1000);
-      MAC.Ulog.Get(1, '', 4, 1, 1000, (resp) => {
-        let result = "<p class='text-muted'><a class='pull-right text-red' href='javascript:;' onclick='MyTheme.RemoteHistory.Clean()'>[清空]</a>远端播放记录</p>";
-        if (resp.code !== 1) {
-          result += `<p style='padding: 80px 0; text-align: center'>${resp.msg}</p>`;
-        } else if (resp.total === 0) {
-          result += "<p style='padding: 80px 0; text-align: center'>您还没有看过影片哦</p>";
-        } else {
-          const flowListItems = resp.list.map(x => MyTheme.RemoteHistory.ToFlowListItem(x))
-          result += MyTheme.FlowList.MakeHtml(flowListItems);
-        }
-        clearInterval(intervalId);
-        waiting = 0;
-        root.html(result);
-        MyTheme.Images.Lazyload();
-      }).fail(x => {
-        const result = "<p style='padding: 80px 0; text-align: center'>网络错误，请稍后重试。</p>";
-        clearInterval(intervalId);
-        waiting = 0;
-        root.html(result);
-      })
-    },
-    'Clean': function () {
-      if (confirm("您确定要清空远端播放记录吗？")) {
-        const root = $("#remote_history");
-        MAC.Ulog.Clean(4, '', '').done((resp) => {
-          window.location.reload()
-        }).fail(x => {
-          const result = "<p style='padding: 80px 0; text-align: center'>网络错误，请稍后重试。</p>";
-          root.html(result);
+  'RemoteData': class RemoteData {
+    constructor(dataType) {
+      this.dataType = dataType;
+    }
+    Init() { }
+    Get() {
+      return MAC.Ulog.Get(1, '', this.dataType, 1, 1000).then(resp => {
+        return resp.list.map(data => {
+          data.link = MAC.Vod.GetUrl(data.id, data.sid, data.nid);
+          return data;
         })
-      }
-    },
-    'Remove': function (id) {
-      MAC.Ulog.Remove(4, '', id).done((resp) => {
-      }).fail(x => {
-        const result = "<p style='padding: 80px 0; text-align: center'>网络错误，请稍后重试。</p>";
-        root.html(result);
       })
-    },
-    'ToFlowListItem': function (data) {
-      data.link = MAC.Vod.GetUrl(data.id, data.sid, data.nid);
-      return data;
-    },
+    }
+    Clear() {
+      return MAC.Ulog.Clean(this.dataType, '', '');
+    }
+    Remove(id) {
+      return MAC.Ulog.Remove(this.dataType, '', id);
+    }
+    Set(name, mid, id, sid, nid, part, pic) {
+      return MAC.Ulog.Set(this.dataType, mid, id, sid, nid, name, part, pic);
+    }
   },
   'History': {
     'Init': function () {
-      MyTheme.LocalHistory.Init();
-      MyTheme.RemoteHistory.Init();
-      // 当页面加载，初始化导航栏的历史记录
-      const root = $("#sidebar");
-      root.simplerSidebarCss3({
-        toggler: "#historyBtn",
-        quitter: ".quit-sidebar",
-        align: "right",
-        events: {
-          onOpen: x => {
-            root.find('.nav a:first').tab('show');
-          }
-        }
-      });
-      root.find('.nav a').on('show.bs.tab', e => {
-        if (e.target.getAttribute('data-init') === "1") {
-          return;
-        }
-        e.target.setAttribute('data-init', "1");
-
-        if (e.target.getAttribute('href') === "#local_history") {
-          MyTheme.LocalHistory.Load();
-        } else {
-          MyTheme.RemoteHistory.Load();
-        }
-      })
-      root.show();
+      const localHistory = new MyTheme.LocalData('history');
+      const remoteHistory = new MyTheme.RemoteData(4);
+      const localHistoryPancel = new MyTheme.SideBarPancel('本地播放记录', '#local_history', localHistory);
+      const remoteHistoryPancel = new MyTheme.SideBarPancel('远端播放记录', '#remote_history', remoteHistory, true);
+      const sidebar = new MyTheme.SideBar("#history-sidebar", "#history-btn", [
+        localHistoryPancel,
+        remoteHistoryPancel,
+      ]);
+      sidebar.render();
+      // 将当前页面加入播放历史
+      const $that = $(".vod_history");
+      if ($that.length) {
+        const args = [
+          $that.attr('data-name'), $that.attr('data-mid'),
+          $that.attr('data-id'), $that.attr('data-sid'),
+          $that.attr('data-nid'), $that.attr('data-part'),
+          $that.attr('data-pic'), $that.attr('data-limit')];
+        localHistory.Set.apply(localHistory, args);
+        remoteHistory.Set.apply(remoteHistory, args);
+      }
+    }
+  },
+  'Fav': {
+    'Init': function () {
+      const localFav = new MyTheme.LocalData('favorite');
+      const remoteFav = new MyTheme.RemoteData(2);
+      const localFavPancel = new MyTheme.SideBarPancel('本地收藏记录', '#local_favorite', localFav);
+      const remoteFavPancel = new MyTheme.SideBarPancel('远端收藏记录', '#remote_favorite', remoteFav, true);
+      const sidebar = new MyTheme.SideBar("#favorite-sidebar", "#favorite-btn", [
+        localFavPancel,
+        remoteFavPancel,
+      ]);
+      sidebar.render();
     },
-    'Set': function (name, id, sid, nid, part, pic, limit) {
-      MyTheme.LocalHistory.Set(name, id, sid, nid, part, pic, limit);
+    'Set': function () {
+      const $that = $(".mac_ulog_set");
+      if ($that.length) {
+        const localFav = new MyTheme.LocalData('favorite');
+        const remoteFav = new MyTheme.RemoteData(2);
+        const args = [
+          $that.attr('data-name'), $that.attr('data-mid'),
+          $that.attr('data-id'), $that.attr('data-sid'),
+          $that.attr('data-nid'), $that.attr('data-part'),
+          $that.attr('data-pic'), $that.attr('data-limit')];
+        localFav.Set.apply(localFav, args);
+        remoteFav.Set.apply(remoteFav, args);
+        alert("收藏成功");
+      }
     }
   },
   'Search': {
@@ -864,6 +862,7 @@ $(function () {
     MyTheme.Mobile.Mshare();
   }
   MyTheme.History.Init();
+  MyTheme.Fav.Init();
   MyTheme.Search.Init();
   MyTheme.Images.Flickity.Init();
   MyTheme.Images.Lazyload();

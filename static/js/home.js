@@ -273,19 +273,24 @@ var MAC = {
     'Init': function () {
     },
     'Get': function (mid, id, type, page, limit, call) {
-      return $.get(`${MAC.Ulog.GetUrl('list', mid, id, type)}&page=${page}&limit=${limit}`, call);
+      if (!MAC.User.IsLogin) return Promise.reject('no login');
+      const p = fetch(`${MAC.Ulog.GetUrl('list', mid, id, type)}&page=${page}&limit=${limit}`).then(x => x.json());
+      if (call) {
+        p = p.then(call);
+      }
+      return p;
     },
     'Set': function (type, mid, id, sid, nid, name, part, pic) {
-      if (!MAC.User.IsLogin) return $.Deferred().reject('no login');
-      return $.get(`${MAC.Ulog.GetUrl('set', mid, id, type)}&sid=${sid}&nid=${nid}&name=${name}&part=${part}&pic=${pic}`);
+      if (!MAC.User.IsLogin) return Promise.reject('no login');
+      return fetch(`${MAC.Ulog.GetUrl('set', mid, id, type)}&sid=${sid}&nid=${nid}&name=${name}&part=${part}&pic=${pic}`).then(x => x.json())
     },
     'Clean': function (type, mid, id) {
-      if (!MAC.User.IsLogin) return $.Deferred().reject('no login');
-      return $.get(`${MAC.Ulog.GetUrl('clean', mid, id, type)}`);
+      if (!MAC.User.IsLogin) return Promise.reject('no login');
+      return fetch(`${MAC.Ulog.GetUrl('clean', mid, id, type)}`).then(x => x.json())
     },
     'Remove': function (type, mid, id) {
-      if (!MAC.User.IsLogin) return $.Deferred().reject('no login');
-      return $.get(`${MAC.Ulog.GetUrl('remove', mid, id, type)}`);
+      if (!MAC.User.IsLogin) return Promise.reject('no login');
+      return fetch(`${MAC.Ulog.GetUrl('remove', mid, id, type)}`).then(x => x.json())
     },
   },
   'Vod': {

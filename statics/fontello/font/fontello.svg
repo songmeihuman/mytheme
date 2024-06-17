@@ -1,7 +1,7 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns="http://www.w3.org/2000/svg">
-<metadata>Copyright (C) 2023 by original authors @ fontello.com</metadata>
+<metadata>Copyright (C) 2024 by original authors @ fontello.com</metadata>
 <defs>
 <font id="fontello" horiz-adv-x="1000" >
 <font-face font-family="fontello" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
@@ -13,6 +13,8 @@
 <glyph glyph-name="clock-1" unicode="&#xe802;" d="M500 546v-250q0-7-5-12t-13-5h-178q-8 0-13 5t-5 12v36q0 8 5 13t13 5h125v196q0 8 5 13t12 5h36q8 0 13-5t5-13z m232-196q0 83-41 152t-110 111-152 41-153-41-110-111-41-152 41-152 110-111 153-41 152 41 110 111 41 152z m125 0q0-117-57-215t-156-156-215-58-216 58-155 156-58 215 58 215 155 156 216 58 215-58 156-156 57-215z" horiz-adv-x="857.1" />
 
 <glyph glyph-name="mobile" unicode="&#xe803;" d="M0-56l0 812q0 39 27 67t67 27l500 0q39 0 66-27t28-67l0-812q0-39-28-67t-66-27l-500 0q-39 0-67 27t-27 67z m63 0q0-14 8-23t23-9l500 0q13 0 22 9t9 23l0 62-562 0 0-62z m0 94l562 0 0 624-562 0 0-624z m0 656l562 0 0 62q0 14-9 23t-22 8l-500 0q-14 0-23-8t-8-23l0-62z m218 47q0 15 16 15l94 0q15 0 15-15t-15-16l-94 0q-16 0-16 16z m32-782q0 16 15 16l31 0q16 0 16-16t-16-15l-31 0q-15 0-15 15z" horiz-adv-x="687" />
+
+<glyph glyph-name="heart" unicode="&#xe804;" d="M500-79q-14 0-25 10l-348 336q-5 5-15 15t-31 37-38 54-30 67-13 77q0 123 71 192t196 70q34 0 70-12t67-33 54-38 42-38q20 20 42 38t54 38 67 33 70 12q125 0 196-70t71-192q0-123-128-251l-347-335q-10-10-25-10z" horiz-adv-x="1000" />
 
 <glyph glyph-name="angle-right" unicode="&#xf105;" d="M332 314q0-7-5-12l-261-261q-5-5-12-5t-13 5l-28 28q-6 6-6 13t6 13l219 219-219 220q-6 5-6 12t6 13l28 28q5 6 13 6t12-6l261-260q5-5 5-13z" horiz-adv-x="357.1" />
 
